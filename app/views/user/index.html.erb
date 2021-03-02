@@ -1,0 +1,39 @@
+<%title ="User Photos List" %>
+<head>
+  <style>
+      table, th, td {
+          border: 1px solid black;
+          border-collapse: collapse;
+      }
+      th, td {
+          padding: 15px;
+      }
+      #t01 tr:nth-child(even) {
+          background-color: #eee;
+      }
+      #t01 tr:nth-child(odd) {
+          background-color: #fff;
+      }
+      #t01 th {
+          background-color: black;
+          color: white;
+      }
+  </style>
+</head>
+<body style="background-color:powderblue;">
+<h1 style="color:red;"> PhotoSite User List</h1>
+<table id="#t01" style="width:100%">
+  <tr>
+      <th>USER</th>
+      <th>FIRST NAME </th>
+      <th>LAST NAME  </th>
+  </tr>
+  <% for user in @user %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= link_to user.first_name, controller: "photo" , id: user.id, action: "index" %></td>
+      <td><%= user.last_name %></td>
+  <% end %>
+  </tr>
+</table>
+</body>
